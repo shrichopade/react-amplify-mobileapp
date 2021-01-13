@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-reactmobileapp-dev-210228-authRole",
+      "UnauthRoleArn": "arn:aws:iam::915213374970:role/amplify-reactmobileapp-dev-210228-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::915213374970:role/amplify-reactmobileapp-dev-210228-authRole",
+      "Region": "eu-west-2",
+      "DeploymentBucketName": "amplify-reactmobileapp-dev-210228-deployment",
+      "UnauthRoleName": "amplify-reactmobileapp-dev-210228-unauthRole",
+      "StackName": "amplify-reactmobileapp-dev-210228",
+      "StackId": "arn:aws:cloudformation:eu-west-2:915213374970:stack/amplify-reactmobileapp-dev-210228/a66d8fa0-55e2-11eb-ae92-0a5db39b2b22",
+      "AmplifyAppId": "d67hd9x5uv2i2"
+    },
+    "categories": {
+      "auth": {
+        "reactmobileappf7a9b8ab": {}
+      }
+    }
+  }
+}
