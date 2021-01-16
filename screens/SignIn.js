@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { Header } from 'react-native-elements';
 import { Auth } from 'aws-amplify';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -21,8 +22,13 @@ export default function SignIn({ navigation, updateAuthState }) {
   }
   return (
     <SafeAreaView style={styles.safeAreaContainer}>
+      <Header
+        backgroundColor="green"
+        centerComponent={{ text: 'Sign-in to Parchee', style: { color: '#ffffff',fontSize: 18,fontWeight: '600' } }}
+      />
       <View style={styles.container}>
-        <Text style={styles.title}>Sign in to your account</Text>
+        <Text style={styles.pageTitle}>Welcome to Parchee</Text>
+        <Text style={styles.pageTitle2}>Your Medical Assistant</Text>
         <AppTextInput
           value={username}
           onChangeText={text => setUsername(text)}
@@ -42,14 +48,22 @@ export default function SignIn({ navigation, updateAuthState }) {
           secureTextEntry
           textContentType="password"
         />
-        <AppButton title="Login" onPress={signIn} />
         <View style={styles.footerButtonContainer}>
+          <TouchableOpacity onPress={() => navigation.navigate('ResetPassword')}>
+            <Text style={styles.forgotPasswordButtonText}>
+              Forgot Password? Reset Password
+            </Text>
+          </TouchableOpacity>
+        </View>
+        <AppButton title="Login" onPress={signIn} />
+		    <View style={styles.footerButtonContainer}>
           <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
             <Text style={styles.forgotPasswordButtonText}>
               Don't have an account? Sign Up
             </Text>
           </TouchableOpacity>
         </View>
+        <Text style={styles.footerText}>Copyright Parchee, all rights reserved</Text>
       </View>
     </SafeAreaView>
   );
@@ -79,5 +93,26 @@ const styles = StyleSheet.create({
     color: 'tomato',
     fontSize: 18,
     fontWeight: '600'
+  },
+  textLabel: {
+    color: '#202020',
+    fontSize: 18,
+    fontWeight: '600'
+  },
+  pageTitle: {
+    color: 'green',
+    fontSize: 28,
+    fontWeight: '900'
+  },
+  pageTitle2: {
+    color: 'green',
+    fontSize: 22,
+    fontWeight: '700'
+  },
+  footerText: {
+    color: '#202020',
+    fontSize: 12,
+    fontWeight: '600'
   }
+
 });

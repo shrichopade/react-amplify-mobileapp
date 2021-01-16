@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { Header } from 'react-native-elements';
 import { Auth } from 'aws-amplify';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -23,8 +24,13 @@ export default function SignUp({ navigation }) {
 
   return (
     <SafeAreaView style={styles.safeAreaContainer}>
+      <Header
+        backgroundColor="green"
+        leftComponent={{ icon: 'menu', color: '#fff' }}
+        centerComponent={{ text: 'Create your account', style: { color: '#ffffff',fontSize: 18,fontWeight: '600' } }}
+        rightComponent={{ icon: 'home', color: '#fff' }}
+      />
       <View style={styles.container}>
-        <Text style={styles.title}>Create a new account</Text>
         <AppTextInput
           value={username}
           onChangeText={text => setUsername(text)}
@@ -53,13 +59,23 @@ export default function SignUp({ navigation }) {
           keyboardType="email-address"
           textContentType="emailAddress"
         />
+		    <AppTextInput
+          value={name}
+          onChangeText={text => setName(name)}
+          leftIcon="text"
+          placeholder="Enter first names"
+          autoCapitalize="yes"
+          keyboardType="name"
+          textContentType="name"
+        />
         <AppButton title="Sign Up" onPress={signUp} />
         <View style={styles.footerButtonContainer}>
-          <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
-            <Text style={styles.forgotPasswordButtonText}>
-              Already have an account? Sign In
-            </Text>
-          </TouchableOpacity>
+          <Text style={styles.forgotPasswordButtonText}>
+			  <Text style={styles.textLabel}>Already have an account? &nbsp;</Text> 
+			  <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
+				  Sign In
+			  </TouchableOpacity>
+		  </Text>
         </View>
       </View>
     </SafeAreaView>
@@ -88,6 +104,11 @@ const styles = StyleSheet.create({
   },
   forgotPasswordButtonText: {
     color: 'tomato',
+    fontSize: 18,
+    fontWeight: '600'
+  },
+  textLabel: {
+    color: '#202020',
     fontSize: 18,
     fontWeight: '600'
   }

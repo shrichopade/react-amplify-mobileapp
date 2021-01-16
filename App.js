@@ -6,6 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import SignIn from './screens/SignIn';
 import SignUp from './screens/SignUp';
 import ConfirmSignUp from './screens/ConfirmSignUp';
+import ResetPassword from './screens/ResetPassword';
 import Home from './screens/Home';
 
 import { StatusBar } from 'expo-status-bar';
@@ -32,6 +33,7 @@ const AuthenticationNavigator = props => {
         )}
       </AuthenticationStack.Screen>
       <AuthenticationStack.Screen name="SignUp" component={SignUp} />
+      <AuthenticationStack.Screen name="ResetPassword" component={ResetPassword} />
       <AuthenticationStack.Screen
         name="ConfirmSignUp"
         component={ConfirmSignUp}
@@ -96,7 +98,8 @@ function App() {
 	}
 
 export default App;
-	
+//export default withAuthenticator(App);
+
 	/*
   async function signOut() {
     try {
